@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\CategoriController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,12 @@ use App\Http\Controllers\Admin\MainController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.index');
+    Route::resource('/categor', CategoryController::class);
+
+/* Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::get('/', [MainController::class, 'index'])->name('admin.index'); */
+    
 });
+// Route::resource('admin/categor', CategoryController::class);
