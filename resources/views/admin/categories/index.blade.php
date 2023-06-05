@@ -29,6 +29,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            {{-- <a href="{{ url('admin/categor/create') }}" class="btn btn-primary mb-3">Добавить --}}
                             <a href="{{ route('categor.create') }}" class="btn btn-primary mb-3">Добавить
                                 категорию</a>
                             @if (count($categories))
