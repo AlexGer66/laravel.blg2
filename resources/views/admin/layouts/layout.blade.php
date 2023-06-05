@@ -301,7 +301,7 @@
         <!-- AdminLTE for demo purposes -->
         {{-- <script src="../../dist/js/demo.js"></script> --}}
         <script src="{{ asset('assets/admin/js/admin.js') }}"></script>
-        <script>
+       {{--  <script>
             $('.nav-sidebar a').each(function () {
                 let location = window.location.protocol + '//' + window.location.host + window.location.pathname;
                 let link = this.href;
@@ -310,7 +310,7 @@
                     $(this).closest('.has-treeview').addClass('menu-open');
                 }
             });
-        </script>
+        </script> --}}
 </body>
 
 </html>
