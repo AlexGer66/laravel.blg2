@@ -2,28 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Posts extends Model
 {
     use HasFactory;
     use Sluggable;
 
-
+    protected $fillable = ['title', 'description', 'content', 'category_id', 'thumbnail'];
     protected $table = 'posts';
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tags::class);
     }
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Categories::class);
     }
-    
+
     public function sluggable(): array
     {
         return [
@@ -31,5 +33,24 @@ class Posts extends Model
                 'source' => 'title'
             ]
         ];
+    }
+    public static function uploadImage(Request $request, $image = null)
+    {
+        if ($request->hasFile('thumbnail')) {
+            if ($image) {
+                Storage::delete($image);
+            }
+            $folder = date('Y-m-d');
+            return $request->file('thumbnail')->store("images/{$folder}");
+        }
+        return null;
+    }
+
+    public function getImage()
+    {
+        if (!$this->thumbnail) {
+            return asset("no-image.png");
+        }
+        return asset("uploads/{$this->thumbnail}");
     }
 }
