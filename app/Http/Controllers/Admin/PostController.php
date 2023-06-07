@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
-use App\Http\Controllers\Controller;
-use App\Models\Categories;
-use App\Models\Posts;
 use App\Models\Tags;
-
+use App\Models\Posts;
+use App\Models\Categories;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -44,13 +45,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $rules=[
             'title' => 'required',
             'description' => 'required',
             'content' => 'required',
             'category_id' => 'required|integer',
             'thumbnail' => 'nullable|image',
-        ]);
+        ];
+        $messages=[
+            'title.required' => 'поле  обяз',  
+        'content.required' => 'поле содерж обяз',
+        'description.required' => 'поле описание обяз',
+        'category_id.required'=> 'надо выбрать катеорию',
+        ];
+
+         Validator::make($request->all(), $rules, $messages )->validate() ;
+        
 
         $data = $request->all();
 
@@ -60,6 +70,7 @@ class PostController extends Controller
         $post->tags()->sync($request->tags);
 
         return redirect()->route('posts.index')->with('success', 'Статья добавлена');
+        
     }
 
     /**
