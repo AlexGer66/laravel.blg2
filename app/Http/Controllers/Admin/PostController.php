@@ -20,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Posts::paginate(20);
+        $posts = Posts::with('category', 'tags')->paginate(20);
         return view('admin.posts.index', compact('posts'));
     }
 
