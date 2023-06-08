@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\MainController;
@@ -19,9 +20,15 @@ use App\Http\Controllers\Admin\CategoryController;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('home'); */
+
+Route::get('/',[HomeController::class, 'index'])->name('home');
+Route::get('/article',[HomeController::class, 'show'])->name('post.single');
+
+
+
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', [MainController::class, 'index'])->name('admin.index');
     Route::resource('/categor', CategoryController::class);
