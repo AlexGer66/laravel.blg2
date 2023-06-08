@@ -50,7 +50,7 @@
                                                 <tr>
                                                     <td>{{ $post->id }}</td>
                                                     <td>{{ $post->title }}</td>
-                                                    <td>{{ $post->category->title }}</td>
+                                                    <td>{{ $post->category->title ?? 'нет' }}</td>
                                                     <td><img src="{{ $post->getImage() }}" alt="{{ $post->title }}" class="img-thumbnail mt-2" width="50"></td>
                                                     <td>{{ $post->tags->pluck('title')->join(', ') }}</td>
                                                     <td>{{ $post->created_at }}</td>
