@@ -73,7 +73,7 @@
             </div><!-- end container-fluid -->
         </header><!-- end market-header -->
 
-       @yield('header')
+        @yield('header')
 
         <section class="section lb @if (!Request::is('/')) m3rem @endif">
             <div class="container">
@@ -83,7 +83,7 @@
                     </div><!-- end col -->
 
                     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                       @include('layouts/sidebar')
+                        @include('layouts/sidebar')
                     </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end container -->
