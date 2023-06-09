@@ -39,10 +39,11 @@
                                                 <th style="width: 30px">#</th>
                                                 <th>Наименование</th>
                                                 <th>Категория</th>
+                                                <th>фото</th>
                                                 <th>Теги</th>
                                                 <th>Дата</th>
                                                 <th>Actions</th>
-                                                <th>фото</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -51,7 +52,8 @@
                                                     <td>{{ $post->id }}</td>
                                                     <td>{{ $post->title }}</td>
                                                     <td>{{ $post->category->title ?? 'нет' }}</td>
-                                                    <td><img src="{{ $post->getImage() }}" alt="{{ $post->title }}" class="img-thumbnail mt-2" width="50"></td>
+                                                    <td><img src="{{ $post->getImage() }}" alt="{{ $post->title }}"
+                                                            class="img-thumbnail mt-2" width="50"></td>
                                                     <td>{{ $post->tags->pluck('title')->join(', ') }}</td>
                                                     <td>{{ $post->created_at }}</td>
                                                     <td>

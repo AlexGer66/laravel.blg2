@@ -64,27 +64,29 @@
                                 <a class="nav-link" href="marketing-contact.html">Contact Us</a>
                             </li>
                             <li class="nav-item">
-                                {{--  @if (Auth::check())
+                                <a class="nav-link" href="marketing-contact.html">                  </a>
+                            </li>
+                            {{--  @if (Auth::check())
                             <a href="#">{{ auth()->user()->name }}</a>
                             <strong><a href="{{ route('logout') }}">> выйти</strong>
                         @else
                             <strong><a href="{{ route('register.create') }}">> регистрация</strong>
                             <strong><a href="{{ route('login.create') }}">> войти</strong>
                         @endif --}}
-
+                            <li>
                                 @auth
-                                    <a class="nav-link"href="#">{{ auth()->user()->name }}
+                                    <a href="#">{{ auth()->user()->name }}
                                         @if (auth()->user()->avatar)
                                             <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt=""
                                                 height="40">
                                         @endif
                                     </a>
-                                    <strong><a class="nav-link" href="{{ route('logout') }}">> выйти</strong>
+                                    <strong><a  href="{{ route('logout') }}">> выйти</strong>
                                 @endauth
 
                                 @guest
-                                    <strong><a href="{{ route('register.create') }}">> регистрация</strong>
-                                    <strong><a href="{{ route('login.create') }}">> войти</strong>
+                                    <strong><a  href="{{ route('register.create') }}">> регистрация</strong>
+                                    <strong><a  href="{{ route('login.create') }}">> войти</strong>
                                 @endguest
                             </li>
                         </ul>
