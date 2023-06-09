@@ -63,6 +63,30 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="marketing-contact.html">Contact Us</a>
                             </li>
+                            <li class="nav-item">
+                                {{--  @if (Auth::check())
+                            <a href="#">{{ auth()->user()->name }}</a>
+                            <strong><a href="{{ route('logout') }}">> выйти</strong>
+                        @else
+                            <strong><a href="{{ route('register.create') }}">> регистрация</strong>
+                            <strong><a href="{{ route('login.create') }}">> войти</strong>
+                        @endif --}}
+
+                                @auth
+                                    <a class="nav-link"href="#">{{ auth()->user()->name }}
+                                        @if (auth()->user()->avatar)
+                                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt=""
+                                                height="40">
+                                        @endif
+                                    </a>
+                                    <strong><a class="nav-link" href="{{ route('logout') }}">> выйти</strong>
+                                @endauth
+
+                                @guest
+                                    <strong><a href="{{ route('register.create') }}">> регистрация</strong>
+                                    <strong><a href="{{ route('login.create') }}">> войти</strong>
+                                @endguest
+                            </li>
                         </ul>
                         <form class="form-inline">
                             <input class="form-control mr-sm-2" type="text" placeholder="How may I help?">
