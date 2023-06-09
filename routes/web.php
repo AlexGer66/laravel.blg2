@@ -25,7 +25,9 @@ use App\Http\Controllers\Admin\CategoryController;
 })->name('home'); */
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
-Route::get('/article',[HomeController::class, 'show'])->name('post.single');
+Route::get('/article/{slug}',[HomeController::class, 'show'])->name('posts.single');
+Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categories.single');
+
 
 
 
