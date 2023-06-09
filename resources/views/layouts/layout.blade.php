@@ -61,6 +61,24 @@
                                 <a class="nav-link"
                                     href="{{ route('categories.single', ['slug' => 'make-money']) }}">Make Money</a>
                             </li>
+
+                            <li>
+                                @auth
+                                    <a href="#">{{ auth()->user()->name }}
+                                        @if (auth()->user()->avatar)
+                                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt=""
+                                                height="40">
+                                        @endif
+                                    </a>
+                                    <strong><a  href="{{ route('logout') }}">> выйти</strong>
+                                @endauth
+                                    
+                                @guest
+                                    <strong><a  href="{{ route('register.create') }}">> регистрация</strong>
+                                    <strong><a  href="{{ route('login.create') }}">> войти</strong>
+                                @endguest
+
+
                         </ul>
                         <form class="form-inline">
                             <input class="form-control mr-sm-2" type="text" placeholder="How may I help?">
