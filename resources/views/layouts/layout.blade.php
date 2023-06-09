@@ -64,7 +64,7 @@
                                 <a class="nav-link" href="marketing-contact.html">Contact Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="marketing-contact.html">                  </a>
+                                <a class="nav-link" href="marketing-contact.html">  //                </a>
                             </li>
                             {{--  @if (Auth::check())
                             <a href="#">{{ auth()->user()->name }}</a>
@@ -83,7 +83,7 @@
                                     </a>
                                     <strong><a  href="{{ route('logout') }}">> выйти</strong>
                                 @endauth
-
+                                    
                                 @guest
                                     <strong><a  href="{{ route('register.create') }}">> регистрация</strong>
                                     <strong><a  href="{{ route('login.create') }}">> войти</strong>
