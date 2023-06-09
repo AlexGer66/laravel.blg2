@@ -46,50 +46,20 @@
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="marketing-index.html"><img
-                            src="assets/front/images/version/market-logo.png" alt=""></a>
+                    <a class="navbar-brand" href="{{ route('home') }}"><img
+                            src="/assets/front/images/version/market-logo.png" alt=""></a>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="marketing-index.html">Home</a>
+                                <a class="nav-link" href="{{ route('home') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="marketing-category.html">Marketing</a>
+                                <a class="nav-link"
+                                    href="{{ route('categories.single', ['slug' => 'marketing']) }}">Marketing</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="marketing-category.html">Make Money</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="marketing-blog.html">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="marketing-contact.html">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="marketing-contact.html">  //                </a>
-                            </li>
-                            {{--  @if (Auth::check())
-                            <a href="#">{{ auth()->user()->name }}</a>
-                            <strong><a href="{{ route('logout') }}">> выйти</strong>
-                        @else
-                            <strong><a href="{{ route('register.create') }}">> регистрация</strong>
-                            <strong><a href="{{ route('login.create') }}">> войти</strong>
-                        @endif --}}
-                            <li>
-                                @auth
-                                    <a href="#">{{ auth()->user()->name }}
-                                        @if (auth()->user()->avatar)
-                                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt=""
-                                                height="40">
-                                        @endif
-                                    </a>
-                                    <strong><a  href="{{ route('logout') }}">> выйти</strong>
-                                @endauth
-                                    
-                                @guest
-                                    <strong><a  href="{{ route('register.create') }}">> регистрация</strong>
-                                    <strong><a  href="{{ route('login.create') }}">> войти</strong>
-                                @endguest
+                                <a class="nav-link"
+                                    href="{{ route('categories.single', ['slug' => 'make-money']) }}">Make Money</a>
                             </li>
                         </ul>
                         <form class="form-inline">

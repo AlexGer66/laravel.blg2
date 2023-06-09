@@ -27,7 +27,7 @@ use App\Http\Controllers\Admin\CategoryController;
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/article/{slug}',[HomeController::class, 'show'])->name('posts.single');
 Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('categories.single');
-
+Route::get('/tag/{slug}', [TagController::class, 'show'])->name('tags.single');
 
 
 
