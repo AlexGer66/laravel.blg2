@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TaghomeController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\MainController;
@@ -30,6 +31,7 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/article/{slug}',[HomeController::class, 'show'])->name('posts.single');
 Route::get('/category/{slug}', [CatController::class, 'show'])->name('categories.single');
 Route::get('/tag/{slug}', [TaghomeController::class, 'show'])->name('tags.single');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 
 
