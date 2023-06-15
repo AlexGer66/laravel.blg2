@@ -21,6 +21,12 @@
                         <a class="nav-link" href="{{ route('categories.single', ['slug' => 'delaem-dengi']) }}">Make
                             Money</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">      | </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('shop.list') }}">Магазин</a>
+                    </li>
                     
                         
                     
