@@ -64,10 +64,11 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout')->middle
 
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.list');
 Route::get('/shop/{slug}', [ShopController::class, 'shou'])->name('shop.shou');
-// $routes->get('product/(:segment)', 'Product::show/$1', ['as' => 'product.show']);
+Route::get('/cart/{id}', [ShopController::class, 'addToCart'])->name('shop.addtocart');
+
 /* 
     + $routes->get('/', 'Main::index', ['as' => 'main.index']);
-$routes->get('product/(:segment)', 'Product::show/$1', ['as' => 'product.show']);
++ $routes->get('product/(:segment)', 'Product::show/$1', ['as' => 'product.show']);
 $routes->get('category/(:segment)', 'Category::show/$1', ['as' => 'category.show']);
 
 */
@@ -75,7 +76,7 @@ $routes->get('category/(:segment)', 'Category::show/$1', ['as' => 'category.show
 
 //корзина
 /* 
-$routes->get('cart/add/(:num)', 'Cart::add/$1', ['as' => 'cart.add']);
+  $routes->get('cart/add/(:num)', 'Cart::add/$1', ['as' => 'cart.add']);
 $routes->get('cart/delete/(:num)', 'Cart::delete/$1', ['as' => 'cart.delete']);
 $routes->get('cart/clear', 'Cart::clear', ['as' => 'cart.clear']);
 $routes->get('cart/show', 'Cart::show', ['as' => 'cart.show']);

@@ -48,19 +48,21 @@ class ShopController extends Controller
             'product' => $products
             
         ]);
-
-
-
-
-
-        /*  $products = DB::table('products')->where()
-        $products = $productModel->where('hit', 1)->findAll(6);
-
-        return view('shop/list', [
-            'title' => 'Интернет-магазин',
-            'products' => $products,
-        ]); */
+        
     }
+
+
+    public function addToCart($id)
+    {
+        $products = $this->products->where(['products.id'=> $id] )->first();
+        
+        return view('shop/cart', [
+            'title' => 'корзина',
+            'product' => $products]);
+           
+// dd($products);
+    }
+
 }
 
 
