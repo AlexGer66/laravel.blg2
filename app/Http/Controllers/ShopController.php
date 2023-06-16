@@ -41,28 +41,42 @@ class ShopController extends Controller
             ->paginate(10); */
 
         // dd($products);
-        $products = $this->products->where(['products.slug'=> $slug] )->first();
+        $products = $this->products->where(['products.slug' => $slug])->first();
         // dd($products);
         return view('shop/shou', [
             'title' => 'Интернет-магазин',
             'product' => $products
-            
+
         ]);
-        
     }
 
 
     public function addToCart($id)
     {
-        $products = $this->products->where(['products.id'=> $id] )->first();
+        $products = $this->products->where(['products.id' => $id])->first();
+
+       session()->push(
+        'cart',[
+
+                'id' => $products->id,
+                'title' => $products->title,
+                'slug' => $products->slug,
+                'price' => $products->price, 
+                ]
         
+       );
+
+        // dd(session('cart')[1]['title']) ;
+        // dd(session()->all()) ;
+
+
         return view('shop/cart', [
             'title' => 'корзина',
-            'product' => $products]);
-           
-// dd($products);
-    }
+            'product' => $products
+        ]);
 
+        // dd($products);
+    }
 }
 
 
